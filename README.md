@@ -1,1 +1,1 @@
-# codekata
+# Exercises from CodeKata.org
