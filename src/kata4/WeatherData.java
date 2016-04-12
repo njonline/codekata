@@ -4,8 +4,6 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static javafx.scene.input.KeyCode.T;
-
 /**
  * Read text file weather.dat
  * Output number of day (column 1) that has smallest temperature spread

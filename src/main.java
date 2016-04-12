@@ -1,4 +1,5 @@
 import kata2.KarateChop;
+import kata4.FootballData;
 import kata4.WeatherData;
 
 import java.io.FileNotFoundException;
@@ -9,9 +10,10 @@ public class main {
     public static void main(String[] args) throws FileNotFoundException {
 
         WeatherData data = new WeatherData();
+        FootballData footballData = new FootballData();
 
         try {
-            data.get_key_from_value_stream();
+            footballData.get_key_from_value();
         } catch (IOException e) {
             e.printStackTrace();
         }
