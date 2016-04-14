@@ -47,7 +47,6 @@ public class FootballData {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList())
                 .get(0);
-        System.out.println(lowest_diff);
         return lowest_diff;
     }
 
@@ -80,6 +79,6 @@ public class FootballData {
                 goals_against.add(data[8]);
                 counter++;
             }
-        }
+        } bufferedReader.close();
     }
 }

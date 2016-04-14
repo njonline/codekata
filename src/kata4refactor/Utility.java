@@ -65,7 +65,7 @@ public class Utility {
                 value2.add(data[column_value2]);
                 counter++;
             }
-        }
+        } bufferedReader.close();
     }
 
     protected void format_and_read_file(int skip_value, String file_path, int line_skip_value, String line_separator, ArrayList<String> key, ArrayList<String> value1, ArrayList<String> value2, int column_key, int column_value1, int column_value2) throws IOException {

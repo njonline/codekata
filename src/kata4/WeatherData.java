@@ -42,7 +42,6 @@ public class WeatherData {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList())
                 .get(0);
-        System.out.println(lowest_value);
         return lowest_value;
     }
 
@@ -54,7 +53,6 @@ public class WeatherData {
             sum = Integer.parseInt(max_temp.get(i)) - Integer.parseInt(min_temp.get(i));
             diff_temp.put(Integer.parseInt(date.get(i)), sum);
         }
-        System.out.println(diff_temp);
         return diff = Collections.min(diff_temp.values());
     }
 
