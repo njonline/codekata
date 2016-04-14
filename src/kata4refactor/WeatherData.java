@@ -6,26 +6,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class FootballData {
+public class WeatherData {
 
     private File file;
     private Utility util;
 
-    private ArrayList<String> value1, value2, key;
+    private ArrayList<String> key, value1, value2;
     private HashMap<String, Integer> hashMap;
 
     private int difference;
 
-    private final int line_skip = 1;
-    private final String file_name = "football.dat";
-    private final int line_to_skip = 18;
-    private final String separator = "-";
-    private final int key_column = 1;
-    private final int value1_column = 6;
-    private final int value2_column = 9;
+    private final int line_skip = 2;
+    private final int max_line_to_read = 32;
+    private final String separator = "*";
+    private final int key_column = 0;
+    private final int value1_column = 1;
+    private final int value2_column = 2;
 
-    public FootballData() throws IOException {
-        file = new File("football.dat");
+    public WeatherData() throws IOException {
+        file = new File("weather.dat");
         value1 = new ArrayList<>();
         value2 = new ArrayList<>();
         key = new ArrayList<>();
@@ -44,7 +43,7 @@ public class FootballData {
         difference = Collections.min(hashMap.values());
     }
 
-    private void format_file() throws IOException {
-        util.format_and_read_file(line_skip, file_name, line_to_skip, separator, key, value1, value2, key_column, value1_column, value2_column);
+    public void format_file() throws IOException {
+        util.read_file(line_skip, max_line_to_read, separator, key, value1, value2, key_column, value1_column, value2_column);
     }
 }
