@@ -1,5 +1,5 @@
 package kata2;
 
 public interface Chop {
-    public int chop(int target, Integer[] array);
+    public int chop(int target, int[] array);
 }

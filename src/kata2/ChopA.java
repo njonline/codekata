@@ -13,15 +13,14 @@ import java.util.Arrays;
 public class ChopA implements Chop {
 
     /**
-     * Determine whether array is empty
-     * If not, find middle index of array represented as an integer
+     * Basic Binary Search Algorithm
      * @param target
      * @param array
      * @return
      */
 
     @Override
-    public int chop(int target, Integer[] array) {
+    public int chop(int target, int[] array) {
 
         int min = 0;
         int max = array.length - 1;
