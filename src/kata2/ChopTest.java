@@ -9,16 +9,28 @@ public class ChopTest {
     @Test
     public void testChop() {
 
-        KarateChop chop = new KarateChop();
+        ChopA chop = new ChopA();
 
-        int[] numbers = new int[] {1, 3, 5, 7};
+        assertEquals(-1, chop.chop(3, new int[]{}));
+        assertEquals(-1, chop.chop(3, new int[]{1}));
+        assertEquals(0,  chop.chop(1, new int[]{1}));
 
-        assertEquals(0, chop.chop5(1, numbers));
-        assertEquals(3, chop.chop5(7, numbers));
-        assertEquals(2, chop.chop5(5, numbers));
-        assertEquals(-1, chop.chop5(2, numbers));
-        assertEquals(-1, chop.chop5(4, numbers));
-        assertEquals(-1, chop.chop5(8, numbers));
+        assertEquals(0,  chop.chop(1, new int[]{1, 3, 5}));
+        assertEquals(1,  chop.chop(3, new int[]{1, 3, 5}));
+        assertEquals(2,  chop.chop(5, new int[]{1, 3, 5}));
+        assertEquals(-1, chop.chop(0, new int[]{1, 3, 5}));
+        assertEquals(-1, chop.chop(2, new int[]{1, 3, 5}));
+        assertEquals(-1, chop.chop(4, new int[]{1, 3, 5}));
+        assertEquals(-1, chop.chop(6, new int[]{1, 3, 5}));
 
+        assertEquals(0,  chop.chop(1, new int[]{1, 3, 5, 7}));
+        assertEquals(1,  chop.chop(3, new int[]{1, 3, 5, 7}));
+        assertEquals(2,  chop.chop(5, new int[]{1, 3, 5, 7}));
+        assertEquals(3,  chop.chop(7, new int[]{1, 3, 5, 7}));
+        assertEquals(-1, chop.chop(0, new int[]{1, 3, 5, 7}));
+        assertEquals(-1, chop.chop(2, new int[]{1, 3, 5, 7}));
+        assertEquals(-1, chop.chop(4, new int[]{1, 3, 5, 7}));
+        assertEquals(-1, chop.chop(6, new int[]{1, 3, 5, 7}));
+        assertEquals(-1, chop.chop(8, new int[]{1, 3, 5, 7}));
     }
 }
