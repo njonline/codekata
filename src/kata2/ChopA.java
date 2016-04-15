@@ -1,5 +1,7 @@
 package kata2;
 
+import java.util.Arrays;
+
 /**
  * Binary search exercise
  * Basic premise:
@@ -10,8 +12,32 @@ package kata2;
  */
 public class ChopA implements Chop {
 
+    /**
+     * Determine whether array is empty
+     * If not, find middle index of array represented as an integer
+     * @param target
+     * @param array
+     * @return
+     */
+
     @Override
-    public int chop(int target, int[] array) {
-        return 0;
+    public int chop(int target, Integer[] array) {
+
+        int min = 0;
+        int max = array.length - 1;
+
+        while(min <= max) {
+            int mid = (int) Math.floor((min + max) / 2);
+            if(array[mid] == target) {
+                return mid;
+            } else if(array[mid] < target) {
+                min = mid + 1;
+            } else {
+                max = mid - 1;
+            }
+        }
+
+        return -1;
     }
+
 }
