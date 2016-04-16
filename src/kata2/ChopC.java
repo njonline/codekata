@@ -12,58 +12,20 @@ public class ChopC implements Chop {
 
     @Override
     public int chop(int target, int[] array) {
+        return binaryRecursion(array, 0, array.length - 1, target);
+    }
 
-        if(array.length == 1) {
-            if(array[0] == target) return 0;
+    private int binaryRecursion(int[] array, int min, int max, int target) {
+        int mid = (min + max) / 2;
+
+        if(min > max) return -1;
+
+        if(array[mid] == target) {
+            return mid;
+        } else if(target < array[mid]) {
+            return binaryRecursion(array, min, mid - 1, target);
+        } else {
+            return binaryRecursion(array, mid + 1, max, target);
         }
-
-        if(array.length > 1) {
-            int min = 0;
-            int max = array.length - 1;
-            int[] sub_array;
-            for(int i = min; i <= max; i++) {
-                int mid = (int) Math.floor((min + max) / 2);
-                if(array[mid] == target) {
-                    return mid;
-                } else {
-                    if (array[mid] < target) {
-                        if(mid % 2 == 0) {
-                            sub_array = new int[mid];
-                        } else {
-                            sub_array = new int[mid + 1];
-                        }
-                        //min = mid + 1;
-                        for (int x = 0; x <= sub_array.length; x++) {
-                            sub_array[i] = array[mid + 1 + x];
-                        }
-                    } else {
-                        if(mid % 2 == 0) {
-                            sub_array = new int[mid];
-                        } else {
-                            sub_array = new int[mid + 1];
-                        }
-                        //max = mid - 1;
-                        for (int x = 0; x <= sub_array.length; x++) {
-                            sub_array[i] = array[x];
-                        }
-                    }
-                    chop(target, sub_array);
-                }
-            }
-        }
-
-        /**
-         *
-         * array.length = 3;
-         * mid.floor = 1;
-         * ny.length = 2 (mid + 1);
-         *
-         *array.length = 4;
-         * mid.floor = 2;
-         * ny.length = 2;
-         *
-         */
-
-        return -1;
     }
 }
