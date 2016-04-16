@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ChopTest {
 
-    Chop chop = new ChopB();
+    Chop chop = new ChopC();
 
     @Test
     public void testChop() {
