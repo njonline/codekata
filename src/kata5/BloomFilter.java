@@ -44,7 +44,6 @@ public class BloomFilter {
         for(int i = 0; i <= hash_count; i++) {
             hashFunction = Hashing.murmur3_32(i);
             int output = Math.abs(hashFunction.hashString(input.toLowerCase(), Charset.defaultCharset()).asInt()) % size;
-            System.out.println(output);
             bitSet.set(output);
         }
     }
@@ -53,7 +52,7 @@ public class BloomFilter {
      * Check an entry in our Bloom Filter.
      * @param input is the String to be checked. Formatted to lowerCase, as to avoid negatives based on case.
      * This method uses a counter to check whether all bits are set.
-     * There should be a better way of checking.
+     * There should be a better way of checking, but my brain hurts.
      */
     public void check_entry(String input) {
         int counter = 0;
